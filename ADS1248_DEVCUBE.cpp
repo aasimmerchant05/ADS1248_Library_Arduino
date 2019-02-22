@@ -106,6 +106,8 @@ void ADS1248_DEVCUBE::reset(void)
 float ADS1248_DEVCUBE::sample_raw(uint8_t ch_pos, uint8_t ch_neg, uint8_t gain, uint8_t sampleRate, uint8_t ref)
 {
 	int32_t res;
+  uint8_t timeout_occured = 0;
+	unsigned long timeout_start = 0;
 	// Enable START to allow writing to registers
 	digitalWrite(ADS1248_START, HIGH);
 	// Check if reference on.  If not, turn on and wait...
@@ -128,10 +130,21 @@ float ADS1248_DEVCUBE::sample_raw(uint8_t ch_pos, uint8_t ch_neg, uint8_t gain, 
 	delayMicroseconds(1);
 	// Start conversion
 	startSingle();
-	// Wait for completion - TODO: put timeout on DRDY in case the ADS1248 doesn't return
-	while(digitalRead(ADS1248_DRDY) == HIGH){};
-	// Retrieve result
-	res = readData();
+  // Wait for completion DRDY timeout occurs after no response for 250ms
+	timeout_start = millis();
+	while(digitalRead(ADS1248_DRDY) == HIGH){
+		if (millis() - timeout_start >= 250) {
+			timeout_occured = 1;
+			Serial.println("DRDY Timeout check connection");
+			break;
+		}
+	};
+	if (timeout_occured == 0) {
+		res = readData();
+	}
+	else{
+		res = -1;
+	}
 	return res;
 }
 

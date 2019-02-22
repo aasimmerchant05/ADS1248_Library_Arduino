@@ -35,6 +35,18 @@
  *
  */
 
+ /*
+ Pin Connections
+
+ ADS1248 RESET --- Digital Pin 2
+ ADS1248 START --- Digital Pin 3
+ ADS1248 DRDY  --- Digital Pin 4
+ ADS1248 DIN   --- Digital Pin 11 MOSI
+ ADS1248 DOUT  --- Digital Pin 12 MISO
+ ADS1248 SCK   --- Digital Pin 13 SCK
+ ADS1248 CS    --- Digital Pin 10 SS
+ */
+
 #include "ADS1248_DEVCUBE.h"
 
 void setup() {
