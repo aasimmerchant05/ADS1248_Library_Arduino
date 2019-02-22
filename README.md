@@ -4,6 +4,12 @@ ADS1248 interfacing example for arduino
 Based on JONNYDYER DAQSHIELD Library
 https://github.com/jonnydyer/daqshield
 
+# Example Program
+The example program sets channel 6 as +ve input and channel 7 as -ve input
+The Sample per second is set to 5
+The ADC gain is set 128 hence voltage greater than +-16mV will be out of range
+The ADC internal reference 2.048V is used for readings
+
 # License
 
 MIT License
