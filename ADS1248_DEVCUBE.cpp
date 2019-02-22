@@ -1,6 +1,6 @@
 /*
  * \brief Library for testing ADS1248 using Arduino
- 
+
  Copyright (c) 2019 Mohammed Asim Merchant
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -121,8 +121,8 @@ float ADS1248_DEVCUBE::sample_raw(uint8_t ch_pos, uint8_t ch_neg, uint8_t gain, 
 	writeReg(ADS1248_SYS0, (ADS1248_PGA_MASK & gain) | (ADS1248_SPS_MASK & sampleRate));
 	// Choose channels
 	writeReg(ADS1248_MUX0, (ADS1248_CH_MASK & ch_neg) | ((ADS1248_CH_MASK & ch_pos) << 3));
-
-  writeReg(ADS1248_VBIAS, 0x80);
+  //Bias negative input to (AVDD-AVSS/2) for common mode input requirement
+  writeReg(ADS1248_VBIAS, 1 << ch_neg);
 	// Disable START to reset sample
 	digitalWrite(ADS1248_START, LOW);
 	delayMicroseconds(1);
