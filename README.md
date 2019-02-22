@@ -11,13 +11,13 @@ The ADC gain is set 128 hence voltage greater than +-16mV will be out of range
 The ADC internal reference 2.048V is used for readings
 
 # Pin Connections
-ADS1248 RESET --- Digital Pin 2
-ADS1248 START --- Digital Pin 3
-ADS1248 DRDY  --- Digital Pin 4  
-ADS1248 DIN   --- Digital Pin 11 MOSI
-ADS1248 DOUT  --- Digital Pin 12 MISO
-ADS1248 SCK   --- Digital Pin 13 SCK
-ADS1248 CS    --- Digital Pin 10 SS
+ADS1248 RESET --- Digital Pin 2<br>
+ADS1248 START --- Digital Pin 3<br>
+ADS1248 DRDY  --- Digital Pin 4<br>
+ADS1248 DIN   --- Digital Pin 11 MOSI<br>
+ADS1248 DOUT  --- Digital Pin 12 MISO<br>
+ADS1248 SCK   --- Digital Pin 13 SCK<br>
+ADS1248 CS    --- Digital Pin 10 SS<br>
 
 # License
 
