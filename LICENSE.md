@@ -1,11 +1,3 @@
-# ADS1248_Library_Arduino
-ADS1248 interfacing example for arduino
-
-Based on JONNYDYER DAQSHIELD Library
-https://github.com/jonnydyer/daqshield
-
-# License
-
 MIT License
 
 Copyright (c) 2019 Mohammed Asim Merchant
